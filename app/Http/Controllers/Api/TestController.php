@@ -209,7 +209,7 @@ public function sign()
             ]
         ]);
 
-        //接收服务器端响应的数据123
+        //接收服务器端响应的数据
         $response_data = $response->getBody();
         echo $response_data;
 
