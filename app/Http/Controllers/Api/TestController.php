@@ -225,6 +225,7 @@ public function sign()
         openssl_sign($data, $signature, $pkeyid);
         openssl_free_key($pkeyid);
         //base64编码签名
+        //
 
         $sign = base64_encode($signature);
         echo '签名：' . $sign;
