@@ -235,4 +235,28 @@ public function sign()
         echo $url;
     }
 
+
+    public function key_encrypt()
+    {
+        $data = "富二代";
+
+
+        //使用非对称加密
+        $priv_key = storage_path('keys/priv1.key');
+        $pkeyid = openssl_pkey_get_private("file://" . $priv_key);
+
+        openssl_private_encrypt($data,$encrypt,$pkeyid,OPENSSL_PKCS1_PADDING);
+
+        $str = base64_encode($encrypt);
+
+        echo '加密:'.$str;
+        echo "<br>";
+        //发送解密数据
+        $url = "http://1905user.com/user/decrypt?data=" . urlencode($str);
+        //$res = file_get_contents($url);
+        $res=file_get_contents($url);
+        //dd($res);die;
+        echo $res;
+
+    }
 }

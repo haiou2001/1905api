@@ -31,6 +31,7 @@ Route::get('/test/md1','TestController@md1');
 Route::get('/test/postman','Api\TestController@postman');
 Route::get('/test/sign','Api\TestController@sign');
 Route::get('/test/sign1','Api\TestController@key_sign');
+Route::get('/test/encrypt','Api\TestController@key_encrypt');
 Route::get('/test/postman1','Api\TestController@postman1')->middleware('checkToken');
 
 Route::get('/test/alipay/return','Alipay\PayController@aliReturn');
@@ -70,3 +71,7 @@ Route::post('/test/post/sign2','Sign\IndexController@sign2');
 
 
 Route::get('/test/sign2','TestController@sign2');
+
+Route::get('sign/sign1','Sign\SignController@sign1');
+Route::get('sign/aes','Sign\SignController@aes');
+Route::get('rsa2','Sign\SignController@rsa2');
